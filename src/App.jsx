@@ -1,23 +1,34 @@
 import './App.css'
 import { useState } from 'react'
 
-function App() {
+function App() { //콜러
+
+  const [count1, setCount1] = useState(0)
+  const [count2, setCount2] = useState(0)
   return (
     <div>
+      <h1>총합: {count1 + count2}</h1>
       <Counter/>
-      <Counter/>
+        count={count1}
+        onIncrement={() => setCount1(prev => prev + 1)
+        }
+        <Counter/>
+        count={count2}
+        onIncrement={() => setCount2(prev => prev + 1)
+        }
+      {/*<Counter/>*/}
     </div>
   )
 }
 
-function Counter() {
+function Counter(count,onIncrement) { //콜리
   const [count, setCount] = useState(0)
 
   return (
     <div>
       <h1>Counter: {count}</h1>
       <button 
-        onClick={ () => setCount( prev => prev + 1 ) }>
+        onClick={onIncrement}>
           증가
       </button>
     </div>
